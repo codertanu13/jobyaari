@@ -1,0 +1,2358 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JobYaari – Government Jobs Portal</title>
+
+<style>
+/* ===========================================================
+   GLOBAL RESET
+=========================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* ===========================================================
+   NAVBAR
+=========================================================== */
+.navbar{
+    width:100%;
+    padding:15px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:white;
+    border-bottom:none;/*1px solid #dfe6ef*/
+}
+@media(min-width:650px){
+    .navbar{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .navbar{grid-template-columns:repeat(1,1fr);}
+}
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-box .logo{
+    background:#1E73DA;
+    color:white;
+    font-size:22px;
+    width:40px;
+    height:40px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left: 450px;
+}
+.logo-box span{
+    font-size:24px;
+    font-weight:bold;
+    color:#1E73DA;
+}
+
+.nav-links{
+    gap:35px;
+    list-style:none;
+}
+.nav-links a{
+    text-decoration:none;
+    color:#000;
+    font-size:21px;
+    font-weight:500;
+}
+
+.btns{
+    display:flex;
+    gap:15px;
+}
+
+.login-btn{
+    padding:8px 22px;
+    border-radius:8px;
+    border:1px solid #1E73DA;
+    color:#1E73DA;
+    background:white;
+    cursor:pointer;
+}
+.sign-btn{
+    padding:8px 22px;
+    border-radius:8px;
+    background:#1E73DA;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+/* ===========================================================
+   HERO SECTION
+=========================================================== */
+.hero{
+    width:100%;
+    padding:80px 20px;
+    text-align:center;
+    background:linear-gradient(to right, #1167C4, #0A4CA9);
+    color:white;
+}
+
+.hero h1{
+    font-size:40px;
+    font-weight:700;
+}
+.hero p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+/* SEARCH BAR */
+.search-area{
+    margin-top:40px;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+}
+.search-input{
+    width:100%;
+    padding:18px;
+    font-size:16px;
+    border:none;
+    outline:none;
+    border-radius:10px 0 0 10px;
+}
+.search-btn{
+    padding:18px 35px;
+    background:#255fff;
+    color:white;
+    border:none;
+    border-radius:0 10px 10px 0;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ===========================================================
+   CATEGORY PILLS
+=========================================================== */
+.category-pill-container{
+    width:100%;
+    padding:30px 0 10px 0;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+}
+@media(min-width:650px){
+    .category-pill-container{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .category-pill-container{grid-template-columns:repeat(1,1fr);}
+}
+.pill{
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.pill:hover{
+    transform:translateY(-3px);
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.pill-ssc{ background:#e5f1ff; color:#1a57c9; }
+.pill-rail{ background:#ffe3ea; color:#c83256; }
+.pill-teach{ background:#e6f7eb; color:#0f6b35; }
+.pill-army{ background:#ffe9cc; color:#c26c05; }
+.pill-bank{ background:#f4e6ff; color:#7a2cbf; }
+.pill-state{ background:#e5f1ff; color:#1a57c9; }
+
+/* ===========================================================
+   WHATSAPP + TELEGRAM BUTTONS
+=========================================================== */
+.join-buttons{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:10px 0 30px 0;
+}
+
+.join-btn{
+    padding:15px 35px;
+    border-radius:40px;
+    font-size:20px;
+    font-weight:700;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    border:none;
+}
+
+.whatsapp{
+    background:#25d366;
+}
+.telegram{
+    background:#0088cc;
+}
+
+/* ===========================================================
+   COLORFUL GRID SECTION
+=========================================================== */
+.color-grid-section{
+    width:100%;
+    padding:25px 0 10px 0;
+    display:flex;
+    justify-content:center;
+}
+@media(min-width:650px){
+    .category-pill-container{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .color-grid-section{grid-template-columns:repeat(1,1fr);}
+}
+.grid-wrapper{
+    width:95%;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:15px;
+}
+
+.grid-box{
+    padding:18px 10px;
+    border-radius:10px;
+    text-align:center;
+    color:white;
+    font-size:20px;
+    font-weight:700;
+    cursor:pointer;
+    line-height:1.3;
+    transition:0.2s;
+}
+.grid-box:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.red{ background:#0086ff; }
+.orange{ background:#0086ff; }
+.pink{ background:#0086ff; }
+.blue{ background:#0086ff; }
+.olive{ background:#377ee9; }
+.sky{ background:#0086ff; }
+.maroon{ background:#377ee9; }
+.green{ background:#377ee9; }
+
+/* ===========================================================
+   THREE CARD SECTION
+=========================================================== */
+.three-card-section{
+    width:100%;
+    padding:25px 0;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+}
+
+.card-box{
+    width:30%;
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+.card-header{
+    padding:15px 18px;
+    font-size:18px;
+    font-weight:700;
+    color:white;
+}
+
+.red2{ background:#e91e63; }
+.blue2{ background:#0b63d1; }
+.darkred2{ background:#c4172c; }
+
+.card-item{
+    padding:8px 16px;
+    border-bottom:1px solid #efefef;
+    cursor:pointer;
+}
+.card-item:hover{
+    background:#f5f8ff;
+}
+.card-title{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:2px;
+}
+.card-sub{
+    font-size:13px;
+    color:#666;
+}
+
+.card-footer{
+    text-align:center;
+    padding:12px;
+    font-size:15px;
+    font-weight:600;
+    color:#0b63d1;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header class="navbar">
+    <!-- ====================== NEW FULL NAVBAR WITH DROPDOWN + ANIMATION ====================== -->
+<header class="navbar">
+    <div class="logo-box">
+        <div class="logo">JY</div>
+        <span>JobYaari</span>
+    </div>
+
+
+       <details class="hamburger">
+        <summary>☰</summary>
+        <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+
+        <!-- JOB DROPDOWN -->
+        <li class="dropdown">
+            <a class="drop-btn">Jobs <span class="arrow">▾</span></a>
+
+            <div class="dropdown-menu large-dropdown">
+
+                <div class="dropdown-column">
+                    <h3>Pre-Graduate</h3>
+                    <a href="https://www.jobyaari.com/category/10th">10th</a>
+                    <a href="https://www.jobyaari.com/category/12th">12th</a>
+                    <a href="https://www.jobyaari.com/category/iti">ITI</a>
+                    <a href="https://www.jobyaari.com/category/polytechnic">Polytechnic</a>
+                </div>
+
+                <div class="dropdown-column">
+                    <h3>Graduate</h3>
+                    <a href="https://www.jobyaari.com/category/engineering">Engineering</a>
+                    <a href="https://www.jobyaari.com/category/science">Science</a>
+                    <a href="https://www.jobyaari.com/category/arts">Arts</a>
+                    <a href="https://www.jobyaari.com/category/commerce">Commerce</a>
+                    <a href="https://www.jobyaari.com/category/medical">Medical</a>
+                    <a href="https://www.jobyaari.com/category/education">Education</a>
+                </div>
+
+                <div class="dropdown-column">
+                    <h3>Post-Graduate</h3>
+                    <a href="https://www.jobyaari.com/category/engineering">Engineering</a>
+                    <a href="https://www.jobyaari.com/category/science">Science</a>
+                    <a href="https://www.jobyaari.com/category/arts">Arts</a>
+                    <a href="https://www.jobyaari.com/category/commerce">Commerce</a>
+                    <a href="https://www.jobyaari.com/category/medical">Medical</a>
+                    <a href="https://www.jobyaari.com/category/education">Education</a>
+                </div>
+
+            </div>
+        </li>
+
+        <li><a href="#">Blog</a></li>
+
+        <!-- TOOLS DROPDOWN -->
+        <li class="dropdown">
+            <a class="drop-btn">Tools <span class="arrow">▾</span></a>
+
+            <div class="dropdown-menu small-dropdown">
+                <a href="#">Image Resize</a>
+                <a href="#">Document Converter</a>
+                <a href="#">Age Calculator</a>
+            </div>
+        </li>
+
+        <li><a href="https://www.jobyaari.com/categories">Category</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    </details>
+    <div class="btns">
+        <button class="sign-btn">FOLLOW</button>
+    </div>
+</header>
+
+
+<!-- ====================== NAVBAR CSS ====================== -->
+<style>
+
+/* NAVBAR LAYOUT (your original styling kept same) */
+.navbar {
+    width: 100%;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    z-index: 1000;
+    position: relative;
+}
+/* Make nav vertical and hidden until details is open */
+details.hamburger > summary  {
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color:transparent;
+  color: white;
+  font-size: 20px;
+  list-style: none;
+  background-color: #000;
+  margin-left:-850px;
+  width:50px;
+
+}
+@media(min-width:650px){
+    .nav-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .nav-links{grid-template-columns:repeat(1,1fr);}
+}
+
+details summary::-webkit-details-marker {
+  display: none; /* remove default triangle */
+}
+@media(min-width:650px){
+    details summary{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    details summary{grid-template-columns:repeat(1,1fr);}
+}
+.nav-links {
+  display: none;         /* hidden initially */
+  flex-direction: column; /* vertical */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;  /* this is key */
+  top: 100%;
+  background-color: grey;
+  margin-left: -850px;
+  width:200px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+details[open] .nav-links {
+  display: flex; /* show when details open */
+}
+
+.nav-links li a {
+  padding: 10px 15px;
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+   width: 200px;   /* horizontal length of border */
+    height: 100px;
+  border-bottom: 1px solid #ccc;
+  
+  
+}
+
+.nav-links li a:hover {
+  background-color: #eee;
+}
+
+
+/* ---------------- DROPDOWN CORE ---------------- */
+.dropdown {
+    position: relative;
+}
+@media(min-width:650px){
+    .dropdown{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .dropdown{grid-template-columns:repeat(1,1fr);}
+}
+
+.drop-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: -00px;
+}
+.dropdown-btn .arrow {
+    margin-left:-100px; /* pushes arrow to the right if needed */
+}
+.arrow {
+    transition: transform 0.25s ease;
+    margin-left: 90px;
+    margin-top: -30px;
+}
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown hidden by default */
+.dropdown-menu {
+    position: absolute;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    top: 45px;
+    left: 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.25s ease-in-out;
+    overflow-y: scroll;
+}
+@media(min-width:650px){
+    .dropdown-menu{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .dropdown-menu{grid-template-columns:repeat(1,1fr);}
+}
+/* Dropdown appears */
+.dropdown:hover .dropdown-menu {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------------- MEGA MENU (JOBS) ---------------- */
+.large-dropdown {
+    width: 650px;
+    justify-content: space-between;
+}
+
+.dropdown-column {
+    width: 30%;
+}
+
+.dropdown-column h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0056d2;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 6px 0;
+    color: #333;
+    font-size: 15px;
+    text-decoration: none;
+    
+}
+
+.dropdown-menu a:hover {
+    color: #0056d2;
+}
+
+/* ---------------- SMALL DROPDOWN (TOOLS) ---------------- */
+.small-dropdown {
+    width: 180px;
+    flex-direction: column;
+}
+
+/* BUTTONS */
+.sign-btn {
+    background: #0056d2;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.sign-btn:hover {
+    background: #003c96;
+}
+
+</style>
+
+</header>
+
+
+
+<!-- ===========================================================
+   HERO SECTION
+=========================================================== -->
+<section class="hero">
+    <h1>Find Your Dream Government Job</h1>
+    <p>Search from 10,000+ Latest Jobs, Admit Cards &amp; Results</p>
+
+    <div class="search-area">
+        <input type="text" class="search-input" placeholder="Search jobs, exams, or companies...">
+        <button class="search-btn">Search</button>
+    </div>
+</section>
+
+
+
+<!-- ===========================================================
+   CATEGORY PILLS
+=========================================================== -->
+<div class="category-pill-container">
+    <div class="pill pill-ssc"> <a href="SSCjob.HTML">SSC Jobs</a></div>
+    <div class="pill pill-rail">Railway Jobs</div>
+    <div class="pill pill-teach">Teaching Jobs</div>
+    <div class="pill pill-army">Police/Army</div>
+    <div class="pill pill-bank">Banking</div>
+    <div class="pill pill-rail">Nursing</div>
+
+</div>
+
+
+<!-- ================= STATES SECTION (SUPER COMPACT VERSION) ================= -->
+<section class="state-section">
+
+<style>
+
+details{
+    display: inline-block;
+}
+summary{
+    background-color: white;
+    border-radius: 5px;
+    height:40px;
+    width:200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    align-items: center; 
+}
+@media(min-width:650px){
+    details summary{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    details summary{grid-template-columns:repeat(1,1fr);}
+}
+.state-section {
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    align-items: center;      /* center vertically if section has height */
+    background:transparent;      /* same blue as hero */
+    height: 60px;             /* fix the vertical size */
+    padding: 0;
+    margin: 0;
+    margin-top: -150px;
+}
+@media(min-width:650px){
+    .state-section{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .state-section{grid-template-columns:repeat(1,1fr);}
+}
+.state-section details {
+    width: 200px;             /* fixed small width */
+    height: 40px;             /* same height as you want */
+    border-radius: 5px;
+    border: none;
+    background: white;
+    text-align: center;
+    display: inline-block;    /* prevents full width stretching */
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+}
+.state-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* select box styling */
+.state-container select {
+    width: 200px;               /* small white bar */
+    height: 240px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    appearance: none;           /* remove default arrow on some browsers */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@media(min-width:650px){
+    .select{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .select{grid-template-columns:repeat(1,1fr);}
+}
+/* Compact State Box */
+.state-box {
+    
+    color: black;
+    
+    border-radius: 8px;
+    font-size: 24px;         /* smaller text */
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.2s;
+    
+    width:200%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;        /* show options vertically */
+    width: 250px; 
+     padding: 10px 15px;    /* larger height */
+    margin-bottom: 5px;
+    gap:20px;
+      padding: 8px 12px;
+  cursor: pointer;
+  text-align: center;
+  background-color: white;  
+}
+
+.state-box:hover {
+    background: #004fa8;
+    transform: translateY(-1px);
+}
+
+.select {
+  position: absolute;
+  top: 100%;        /* dropdown summary के नीचे */
+  left: 0;
+  width: 150%;
+  max-height: 300px;  /* overall fixed height */
+  overflow-y: auto;
+     /* अगर content ज्यादा हुआ तो scroll */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 5px;
+  z-index: 100;
+  background: white;   /* dropdown का background */
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 5px 0;
+}
+</style>
+
+
+    <div class="state-container">
+   <details>     
+    <summary>Select your State ▾</summary>
+   <div class="select">
+    <div class="state-box"><a href="Statejobpage.html">Arunachal Pradesh</a></div>
+    <div class="state-box">Assam</div>
+    <div class="state-box">Bihar</div>
+    <div class="state-box">Chhattisgarh</div>
+    <div class="state-box">Goa</div>
+    <div class="state-box">Gujarat</div>
+    <div class="state-box">Haryana</div>
+    <div class="state-box">Himachal Pradesh</div>
+    <div class="state-box">Jharkhand</div>
+    <div class="state-box">Karnataka</div>
+    <div class="state-box">Kerala</div>
+    <div class="state-box">Madhya Pradesh</div>
+    <div class="state-box">Maharashtra</div>
+    <div class="state-box">Manipur</div>
+    <div class="state-box">Meghalaya</div>
+    <div class="state-box">Mizoram</div>
+    <div class="state-box">Nagaland</div>
+    <div class="state-box">Odisha</div>
+    <div class="state-box">Punjab</div>
+    <div class="state-box">Rajasthan</div>
+    <div class="state-box">Sikkim</div>
+    <div class="state-box">Tamil Nadu</div>
+    <div class="state-box">Telangana</div>
+    <div class="state-box">Tripura</div>
+    <div class="state-box">Uttar Pradesh</div>
+    <div class="state-box">Uttarakhand</div>
+    <div class="state-box">West Bengal</div>
+    </div>
+  </details>
+    </div>
+  
+</section>
+
+<!-- ===========================================================
+   WHATSAPP + TELEGRAM BUTTONS
+=========================================================== -->
+ <!-- SOCIAL FOLLOW SECTION - WHATSAPP & TELEGRAM -->
+<div class="join-buttons-section">
+
+<style>
+    .join-buttons-section {
+        width: 100%;
+        text-align: center;
+        margin: 0px 0;
+        font-family: Arial, sans-serif;
+        margin-top: 150px;
+        margin-bottom: 30px;
+    }
+    @media(min-width:650px){
+    .join-buttons{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .join-buttons{grid-template-columns:repeat(1,1fr);}
+}
+    .social-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-social {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 18px;
+        color: #ffffff;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+      @media(min-width:650px){
+    .btn-social{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .btn-social{grid-template-columns:repeat(1,1fr);}
+}
+    .btn-social img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .btn-whatsapp {
+        background: #25D366;
+    }
+
+    .btn-whatsapp:hover {
+        background: #1ebe5d;
+    }
+
+    .btn-telegram {
+        background: #0088cc;
+    }
+
+    .btn-telegram:hover {
+        background: #0077b3;
+    }
+
+    
+a:link {
+            color: #000000; /* Red color for normal links */
+            text-decoration: none; /* Removes the underline */
+        }
+</style>
+
+<div class="social-buttons">
+    
+    <!-- WhatsApp Button -->
+    <button class="btn-social btn-whatsapp">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png">
+        Join Whatsapp
+    </button>
+
+    <!-- Telegram Button -->
+    <button class="btn-social btn-telegram">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/telegram.png">
+        Join Telegram
+    </button>
+
+</div>
+
+</div>
+
+
+<!-- ===========================================================
+   COLOR GRID SECTION
+=========================================================== -->
+<div class="color-grid-section">
+    <div class="grid-wrapper">
+
+        <div class="grid-box red"> RRB Group D Exam City /<br><a href="linkpage.html">POSTS(41,424)</a></div>
+        <div class="grid-box orange">UP Home Guard Form<br>(41,424 Posts)</div>
+        <div class="grid-box pink">SSC GD Constable Form<br>(25,487 Posts)</div>
+        <div class="grid-box blue">IB MTS Online Form</div>
+
+        <div class="grid-box olive">UP Anganwadi Bharti 2025<br>(57,862 Posts)</div>
+        <div class="grid-box sky">BTSC Work Inspector Form<br>(1114 Posts)</div>
+        <div class="grid-box maroon">BSSC Inter Level Form<br>(23,175 Posts)</div>
+        <div class="grid-box green">UP Scholarship Form<br>2025-26</div>
+
+    </div>
+</div>
+
+<div class="category-pill-container">
+
+    <div class="pill pill-army"><a href="https://www.jobyaari.com/category/10th">10th</a></div>
+    <div class="pill pill-army"><a href="https://www.jobyaari.com/category/12th">12th</a></div>
+    <div class="pill pill-army">ITI</div>
+    <div class="pill pill-army">Polytechnic</div>
+    <div class="pill pill-army">Graduate</div>
+    <div class="pill pill-army">Post-Graduate</div>
+
+
+
+
+</div>
+
+
+<div class="three-card-section">
+
+<!-- RESULT CARD -->
+<div class="card-box">
+    <div class="card-header red2">🏆 RESULT</div>
+
+    <div class="card-item"><div class="card-title">UPSC IAS 2024 Final Result</div><div class="card-sub"> Download Now</div></div>
+    <div class="card-item"><div class="card-title">SSC CHSL 2024 Tier 1 Result</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">UP Police Constable Result 2025</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">BPSC 69th Mains Result</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">GATE 2025 Score Card</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">RRB NTPC Result 2025</div><div class="card-sub">Phase 1 Declared</div></div>
+    <div class="card-item"><div class="card-title">SSC GD Result 2025</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">JEE Main 2025 Result</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">CTET January 2025 Result</div><div class="card-sub">Check Now</div></div>
+    <div class="card-item"><div class="card-title">MP Police Constable Result</div><div class="card-sub">Download Nowt</div></div>
+
+    <div class="card-footer"><a href="ViewmoreResult.html"> VIEW ALL RESULTS</a>  </div>
+</div>
+
+
+
+<!-- ADMIT CARD -->
+<div class="card-box">
+    <div class="card-header blue2">📋 ADMIT CARD</div>
+
+    <div class="card-item"><div class="card-title">CRPF Constable Tradesman Admit Card</div><div class="card-sub">Exam Date: 20 Aug 2025</div></div>
+    <div class="card-item"><div class="card-title">UGC NET June 2025 Hall Ticket</div><div class="card-sub">Server 1 &amp; 2 Available</div></div>
+    <div class="card-item"><div class="card-title">MPESB Group 4 Admit Card</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">IBPS Clerk Prelims Call Letter</div><div class="card-sub">Download Now</div></div>
+    <div class="card-item"><div class="card-title">NEET UG 2025 Admit Card</div><div class="card-sub">Exam Date: TBA</div></div>
+    <div class="card-item"><div class="card-title">SSC CGL 2025 Admit Card</div><div class="card-sub">Region Wise Available</div></div>
+    <div class="card-item"><div class="card-title">Railway Group D Admit Card</div><div class="card-sub">Login to Download</div></div>
+    <div class="card-item"><div class="card-title">NDA 1 2025 Admit Card</div><div class="card-sub">Check &amp; Download</div></div>
+    <div class="card-item"><div class="card-title">AFCAT 2025 Admit Card</div><div class="card-sub">Out Now</div></div>
+    <div class="card-item"><div class="card-title">Indian Navy SSR Admit Card</div><div class="card-sub">Download Available</div></div>
+
+    <div class="card-footer"><a href="admitcardviewpage.html"> VIEW ALL ADMIT CARDS</a></div>
+</div>
+
+
+
+
+<!-- LATEST JOBS -->
+<div class="card-box">
+    <div class="card-header darkred2">💼 LATEST JOBS</div>
+
+    <div class="card-item"><div class="card-title"><a href="linkpage.html">Bihar Vidhan Sabha Recruitment Group D Posts</a>  </div><div class="card-sub"></div></div>
+    <div class="card-item"><div class="card-title">Railway RPF Constable &amp; SI Online Form (4000+ Posts)</div><div class="card-sub"> </div></div>
+    <div class="card-item"><div class="card-title">India Post GDS Recruitment 2025</div><div class="card-sub">30,000 Posts • No Exam</div></div>
+    <div class="card-item"><div class="card-title">SBI PO 2025 Apply Online</div><div class="card-sub">2000 Vacancies</div></div>
+    <div class="card-item"><div class="card-title">Army Agniveer Rally Registration</div><div class="card-sub">Apply Now</div></div>
+    <div class="card-item"><div class="card-title">UPSC CAPF 2025 Vacancy</div><div class="card-sub">BSF, CRPF, ITBP, CISF</div></div>
+    <div class="card-item"><div class="card-title">SSC MTS Recruitment 2025</div><div class="card-sub">10th Pass</div></div>
+    <div class="card-item"><div class="card-title">DRDO Apprentice Vacancy</div><div class="card-sub">Graduate &amp; Diploma</div></div>
+    <div class="card-item"><div class="card-title">ISRO Recruitment 2025</div><div class="card-sub">Technical &amp; Non-Technical</div></div>
+    <div class="card-item"><div class="card-title">Indian Air Force AFCAT 2025</div><div class="card-sub">Apply Online</div></div>
+
+    <div class="card-footer"><a href="jobviewmorepage.html"> VIEW ALL JOBS </a></div>
+</div>
+
+</div>
+
+<!-- ===================== HOT JOBS TITLE BAR ===================== -->
+<div class="hot-jobs-section">
+
+<style>
+/* ---------- TITLE BAR ---------- */
+.hot-jobs-section{
+    width:100%;
+    padding:18px 40px;
+    background:#f5f8ff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-radius:8px;
+    margin:25px 0 10px;
+}
+@media(min-width:650px){
+    .hot-job-sections{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .hot-job-sections{grid-template-columns:repeat(1,1fr);}
+}
+.hot-jobs-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.hot-jobs-line{
+    width:4px;
+    height:28px;
+    background:#0077b6;   /* blue theme */
+    border-radius:5px;
+}
+.hot-jobs-text{
+    font-size:22px;
+    font-weight:700;
+    color:#0b1a33;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.hot-jobs-btn{
+    background:#006b63;
+    color:white;
+    padding:12px 26px;
+    border-radius:10px;
+    border:none;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.15s;
+}
+.hot-jobs-btn:hover{
+    background:#00514a;
+    transform:translateY(-2px);
+}
+
+/* ---------- HOT JOB CARDS GRID ---------- */
+.hot-job-cards{
+    width:100%;
+    padding:18px 40px 30px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px; /* compact spacing */
+}
+
+/* Card container */
+.hot-card{
+    background:#fff;
+    padding:16px;
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    transition:0.2s;
+    display:flex;
+    flex-direction:column;
+}
+.hot-card:hover{
+    transform:translateY(-6px);
+}
+
+/* Title Tag */
+.job-tag{
+    display:inline-block;
+    background:#e5ecff;
+    color:#2c4bd8;
+    padding:6px 12px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+/* Top Section */
+.job-top{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+}
+.job-logo{
+    width:100px;
+    height:120px;
+    background:#f3f3f3;
+    border-radius:6px;
+}
+.job-company{
+    font-size:18px;
+    font-weight:700;
+    color:#0b1a33;
+    line-height:1.25;
+}
+
+/* Job Details */
+.job-detail{
+    font-size:14px;
+    color:#333;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:4px;
+}
+
+/* Tags */
+.tag-box{
+    margin-top:8px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.tag{
+    padding:6px 12px;
+    background:#f5f5f5;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+    color:#444;
+}
+@media(min-width:650px){
+    .tags{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .tags{grid-template-columns:repeat(1,1fr);}
+}
+
+/* Footer dates */
+.job-footer{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px solid #eee;
+    font-size:13px;
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+}
+
+/* Responsive */
+@media(min-width:900px){
+    .hot-job-cards{grid-template-columns:repeat(2,1fr);}
+}
+@media(minx-width:650px){
+    .hot-job-cards{grid-template-columns:repeat(1,1fr);}
+}
+</style>
+
+    <!-- LEFT TITLE -->
+    <div class="hot-jobs-left">
+        <div class="hot-jobs-line"></div>
+        <div class="hot-jobs-text">🔥 Hot Jobs This Week</div>
+    </div>
+
+    <!-- BUTTON -->
+    <button class="hot-jobs-btn">View All Jobs →</button>
+
+</div>
+
+
+
+<!-- ===================== HOT JOB CARDS ===================== -->
+<div class="hot-job-cards">
+
+    <!-- Card 1 -->
+    <div class="hot-card">
+        <span class="job-tag">Project Assistant / Associate</span>
+
+        <div class="job-top">
+            <div class="job-logo"></div>
+            <div class="job-company">
+                Indian Institute<br>Of Science<br>Bangalore (IISC)
+            </div>
+        </div>
+
+        <div class="job-detail">💰 Check Notification</div>
+        <div class="job-detail">🎓 B.E / B.Tech</div>
+        <div class="job-detail">📍 Karnataka</div>
+
+        <div class="tag-box">
+            <span class="tag">Mechanical</span>
+            <span class="tag">Aerospace</span>
+        </div>
+
+        <div class="job-footer">
+            <span>Last Date: 31-12-2025</span>
+            <span>Posted: 03-12-2025</span>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="hot-card">
+        <span class="job-tag">Research Associate</span>
+
+        <div class="job-top">
+            <div class="job-logo"></div>
+            <div class="job-company">IIT Roorkee</div>
+        </div>
+
+        <div class="job-detail">💰 75,000</div>
+        <div class="job-detail">🎓 B.E / B.Tech</div>
+        <div class="job-detail">📍 Uttarakhand</div>
+
+        <div class="tag-box">
+            <span class="tag">Computer Science</span>
+            <span class="tag">IT</span>
+        </div>
+
+        <div class="job-footer">
+            <span>Last Date: 15-12-2025</span>
+            <span>Posted: 03-12-2025</span>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="hot-card">
+        <span class="job-tag">Deputy Secretary (IT)</span>
+
+        <div class="job-top">
+            <div class="job-logo"></div>
+            <div class="job-company">UPPSC</div>
+        </div>
+
+        <div class="job-detail">💰 15,600 – 39,100</div>
+        <div class="job-detail">🎓 B.E / B.Tech</div>
+        <div class="job-detail">📍 Uttar Pradesh</div>
+
+        <div class="tag-box">
+            <span class="tag">Computer Science</span>
+            <span class="tag">IT</span>
+        </div>
+
+        <div class="job-footer">
+            <span>Last Date: 22-12-2025</span>
+            <span>Posted: 02-12-2025</span>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="hot-card">
+        <span class="job-tag">Senior Officer / Engineer</span>
+
+        <div class="job-top">
+            <div class="job-logo"></div>
+            <div class="job-company">GAIL India</div>
+        </div>
+
+        <div class="job-detail">💰 60,000 – 1,80,000</div>
+        <div class="job-detail">🎓 B.E / B.Tech</div>
+        <div class="job-detail">📍 All India</div>
+
+        <div class="tag-box">
+            <span class="tag">Civil</span>
+            <span class="tag">Computer Science</span>
+            <span class="tag">IT</span>
+        </div>
+
+        <div class="job-footer">
+            <span>Last Date: 23-12-2025</span>
+            <span>Posted: 30-11-2025</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- same but with all the things  -->
+
+
+
+<!--_____________________________________________--->
+
+
+<!-- GRADUATE JOBS & INTERNSHIPS SECTION -->
+
+    <section>
+    <div class="internship-section">
+
+<style>
+    .internship-section {
+        background:#e8f4ff;
+        padding:50px 0;
+        font-family:Arial, sans-serif;
+    }
+     @media(min-width:650px){
+    .internship-section{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .internship-section{grid-template-columns:repeat(1,1fr);}
+}
+    .internship-container {
+        max-width:1300px;
+        margin:auto;
+        padding:0 20px;
+    }
+
+    .internship-title {
+        font-size:34px;
+        font-weight:700;
+        margin-bottom:20px;
+    }
+
+    .category-buttons {
+        display:flex;
+        gap:15px;
+        flex-wrap:wrap;
+        margin-bottom:30px;
+    }
+
+    .category-buttons button {
+        padding:10px 22px;
+        border-radius:30px;
+        border:none;
+        cursor:pointer;
+        font-size:14px;
+        background:#fff;
+        color:#333;
+        box-shadow:0px 2px 6px rgba(0,0,0,0.1);
+        transition:0.3s;
+    }
+    @media(min-width:650px){
+    .category-buttons{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .category-buttons{grid-template-columns:repeat(1,1fr);}
+}
+
+    .category-buttons button.active {
+        background:#0066ff;
+        color:#fff;
+    }
+
+    .internship-slider {
+        display:flex;
+        gap:25px;
+        overflow-x:auto;
+        scroll-behavior:smooth;
+        padding-bottom:20px;
+    }
+
+    .internship-slider::-webkit-scrollbar {
+        height:8px;
+    }
+    .internship-slider::-webkit-scrollbar-thumb {
+        background:#cccccc;
+        border-radius:10px;
+    }
+
+    .internship-card {
+        min-width:300px;
+        max-width:300px;
+        background:#fff;
+        padding:20px;
+        border-radius:14px;
+        box-shadow:0 3px 10px rgba(0,0,0,0.08);
+        flex-shrink:0;
+    }
+
+    .badge-hiring {
+        background:#e7f3ff;
+        border:1px solid #bcd8ff;
+        color:#1a73e8;
+        font-size:12px;
+        padding:4px 10px;
+        border-radius:6px;
+        display:inline-block;
+        margin-bottom:10px;
+    }
+
+    .job-title {
+        font-size:17px;
+        font-weight:700;
+        margin:5px 0;
+    }
+
+    .company {
+        font-size:14px;
+        color:#777;
+        margin-bottom:15px;
+    }
+
+    .info-row {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin:6px 0;
+        font-size:14px;
+    }
+
+    .tag-type {
+        background:#f1f1f1;
+        padding:4px 10px;
+        border-radius:6px;
+        font-size:12px;
+        display:inline-block;
+        margin-top:10px;
+    }
+
+    .view-details {
+        text-align:right;
+        margin-top:15px;
+        color:#0066ff;
+        font-weight:600;
+        cursor:pointer;
+        font-size:14px;
+    }
+
+    .slider-controls {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:20px;
+        margin-top:20px;
+    }
+
+    .arrow {
+        width:40px;
+        height:40px;
+        background:#fff;
+        border-radius:20px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        box-shadow:0 2px 6px rgba(0,0,0,0.1);
+        cursor:pointer;
+        font-size:18px;
+    }
+    
+    .slider-dots {
+        display:flex;
+        gap:10px;
+    }
+
+    .dot {
+        width:10px;
+        height:10px;
+        background:#bcd8ff;
+        border-radius:50%;
+    }
+
+    .dot.active {
+        background:#0066ff;
+        width:28px;
+        border-radius:20px;
+    }
+    @media(min-width:650px){
+    .internship-container{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+       .internship-container{grid-template-columns:repeat(1,1fr);}
+}
+</style>
+
+<div class="internship-container">
+
+    <div class="internship-title">GRADUATE JOBS</div>
+
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+        <button class="active">B.Tech</button>
+        <button>B.Sc</button>
+        <button>B.Com</button>
+        <button>B.A</button>
+        <button>MBBS</button>
+        <button>B.Pharma</button>
+        <button>BBA</button>
+        <button>Others</button>
+    </div>
+
+    <!-- Internship Cards Slider -->
+    <div class="internship-slider">
+
+        <!-- CARD 1 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Graphic Design</div>
+            <div class="company">Greater Than Educational Technologies</div>
+
+            <div class="info-row">📍 Hyderabad</div>
+            <div class="info-row">💰 ₹ 15,000 - 20,000 /month</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Campus Ambassador</div>
+            <div class="company">Motilal Oswal Financial Services</div>
+
+            <div class="info-row">📍 —</div>
+            <div class="info-row">💰 Performance Based</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Car Expert</div>
+            <div class="company">Cars24 Services Pvt. Ltd</div>
+
+            <div class="info-row">📍 Haryana</div>
+            <div class="info-row">💰 ₹ 15,000 - 20,000 /month</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Car Expert</div>
+            <div class="company">Cars24 Services Pvt. Ltd</div>
+
+            <div class="info-row">📍 Uttar Pradesh</div>
+            <div class="info-row">💰 ₹ 15,000 - 20,000 /month</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+    </div>
+</div></div></section>
+<div>
+<br>
+</div>
+    <!-- Post- GRADUATE JOBS & INTERNSHIPS SECTION -->
+    <div class="internship-section">
+
+<style>
+    .internship-section {
+        background:#e8f4ff;
+        padding:50px 0;
+        font-family:Arial, sans-serif;
+    }
+    @media(min-width:650px){
+    .internship-container{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .internship-container{grid-template-columns:repeat(1,1fr);}
+}
+
+    .internship-container {
+        max-width:1300px;
+        margin:auto;
+        padding:0 20px;
+    }
+
+    .internship-title {
+        font-size:34px;
+        font-weight:700;
+        margin-bottom:20px;
+    }
+
+    .category-buttons {
+        display:flex;
+        gap:15px;
+        flex-wrap:wrap;
+        margin-bottom:30px;
+    }
+
+    .category-buttons button {
+        padding:10px 22px;
+        border-radius:30px;
+        border:none;
+        cursor:pointer;
+        font-size:14px;
+        background:#fff;
+        color:#333;
+        box-shadow:0px 2px 6px rgba(0,0,0,0.1);
+        transition:0.3s;
+    }
+    @media(min-width:650px){
+    .category-buttons button{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .category-buttons button{grid-template-columns:repeat(1,1fr);}
+}
+
+    .category-buttons button.active {
+        background:#0066ff;
+        color:#fff;
+    }
+
+    .internship-slider {
+        display:flex;
+        gap:25px;
+        overflow-x:auto;
+        scroll-behavior:smooth;
+        padding-bottom:20px;
+    }
+
+    .internship-slider::-webkit-scrollbar {
+        height:8px;
+    }
+    .internship-slider::-webkit-scrollbar-thumb {
+        background:#cccccc;
+        border-radius:10px;
+    }
+
+    .internship-card {
+        min-width:300px;
+        max-width:300px;
+        background:#fff;
+        padding:20px;
+        border-radius:14px;
+        box-shadow:0 3px 10px rgba(0,0,0,0.08);
+        flex-shrink:0;
+    }
+      @media(min-width:650px){
+    .internship-card{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:9000px){
+    .internship-card{grid-template-columns:repeat(1,1fr);}
+}
+    .badge-hiring {
+        background:#e7f3ff;
+        border:1px solid #bcd8ff;
+        color:#1a73e8;
+        font-size:12px;
+        padding:4px 10px;
+        border-radius:6px;
+        display:inline-block;
+        margin-bottom:10px;
+    }
+
+    .job-title {
+        font-size:17px;
+        font-weight:700;
+        margin:5px 0;
+    }
+
+    .company {
+        font-size:14px;
+        color:#777;
+        margin-bottom:15px;
+    }
+
+    .info-row {
+        display:flex;
+        align-items:center;
+        gap:10px;
+        margin:6px 0;
+        font-size:14px;
+    }
+
+    .tag-type {
+        background:#f1f1f1;
+        padding:4px 10px;
+        border-radius:6px;
+        font-size:12px;
+        display:inline-block;
+        margin-top:10px;
+    }
+
+    .view-details {
+        text-align:right;
+        margin-top:15px;
+        color:#0066ff;
+        font-weight:600;
+        cursor:pointer;
+        font-size:14px;
+    }
+
+    .slider-controls {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:20px;
+        margin-top:20px;
+    }
+
+    .arrow {
+        width:40px;
+        height:40px;
+        background:#fff;
+        border-radius:20px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        box-shadow:0 2px 6px rgba(0,0,0,0.1);
+        cursor:pointer;
+        font-size:18px;
+    }
+
+    .slider-dots {
+        display:flex;
+        gap:10px;
+    }
+
+    .dot {
+        width:10px;
+        height:10px;
+        background:#bcd8ff;
+        border-radius:50%;
+    }
+
+    .dot.active {
+        background:#0066ff;
+        width:28px;
+        border-radius:20px;
+    }
+</style>
+
+<div class="internship-container">
+
+    <div class="internship-title">POST-GRADUATE JOBS</div>
+
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+        <button class="active">M.Tech</button>
+        <button>MSC</button>
+        <button>MA</button>
+        <button>MCOM</button>
+        <button>MBA/PGDM</button>
+        <button>MD/MS/DNB</button>
+        <button>Others</button>
+    </div>
+
+    <!-- Internship Cards Slider -->
+    <div class="internship-slider">
+
+        <!-- CARD 1 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Graphic Design</div>
+            <div class="company">Greater Than Educational Technologies</div>
+
+            <div class="info-row">📍 Hyderabad</div>
+            <div class="info-row">💰 ₹ 15,000 - 20,000 /month</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Campus Ambassador</div>
+            <div class="company">Motilal Oswal Financial Services</div>
+
+            <div class="info-row">📍 —</div>
+            <div class="info-row">💰 Performance Based</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Car Expert</div>
+            <div class="company">Cars24 Services Pvt. Ltd</div>
+
+            <div class="info-row">📍 Haryana</div>
+            <div class="info-row">💰 ₹ 15,000 - 20,000 /month</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="internship-card">
+            <span class="badge-hiring">📈 Actively hiring</span>
+            <div class="job-title">Car Expert</div>
+            <div class="company">Cars24 Services Pvt. Ltd</div>
+
+            <div class="info-row">📍 Uttar Pradesh</div>
+            <div class="info-row">💰 ₹ 15,000 - 20,000 /month</div>
+            <div class="info-row">📅 3 Months</div>
+
+            <span class="tag-type">JOB</span>
+
+            <div class="view-details">View details →</div>
+        </div>
+
+    </div>
+    </div>
+
+  
+
+    <!-- Slider Controls -->
+    <div class="slider-controls">
+        <div class="arrow">←</div>
+
+        <div class="slider-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="arrow">→</div>
+    </div>
+
+</div>
+</div>
+    <!-- blog section -->
+     <div class="jobtalk-blog-section">
+
+<style>
+    .jobtalk-blog-section {
+        width: 100%;
+        background: #f5f5f5;
+        padding: 40px 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+     @media(min-width:650px){
+    .jobtalk-blog-section{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .jobtalk-blog-section{grid-template-columns:repeat(1,1fr);}
+}
+    .jobtalk-title {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .jobtalk-subtitle {
+        font-size: 15px;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    /* Slider Container */
+    .jobtalk-slider {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 10px 20px;
+    }
+
+    .jobtalk-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Blog Card */
+    .job-card {
+        min-width: 280px;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    @media(min-width:900px){
+    .job-card{grid-template-columns:repeat(2,1fr);}
+}
+@media(minx-width:650px){
+    .job-cards{grid-template-columns:repeat(1,1fr);}
+}
+    .job-card img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+    }
+
+    .job-card-content {
+        padding: 15px;
+        text-align: left;
+    }
+
+    .job-title-text {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .job-meta-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: #777;
+    }
+
+    /* Arrow Buttons */
+    .arrow-btn {
+        position: absolute;
+        top: 50%;
+        width: 38px;
+        height: 38px;
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 20px;
+        user-select: none;
+        transform: translateY(-50%);
+    }
+     @media(min-width:650px){
+    .arrow-btn{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .arrow-btn{grid-template-columns:repeat(1,1fr);}
+}
+    .arrow-left {
+        left: 10px;
+    }
+
+    .arrow-right {
+        right: 10px;
+    }
+
+    .jobtalk-slider-wrapper {
+        position: relative;
+        padding: 0 40px;
+    }
+
+</style>
+
+<!-- Section Title -->
+<div class="jobtalk-title">LATEST FROM JOBTALK</div>
+<div class="jobtalk-subtitle">Top Recruiters. Latest job news. Career guides to help you succeed.</div>
+
+<!-- Slider Wrapper -->
+<div class="jobtalk-slider-wrapper">
+
+    <!-- Left Arrow -->
+    <div class="arrow-btn arrow-left" onclick="document.querySelector('.jobtalk-slider').scrollBy({left:-300,behavior:'smooth'})">
+        ❮
+    </div>
+
+    <!-- Slider -->
+    <div class="jobtalk-slider">
+
+        <!-- CARD 1 -->
+        <div class="job-card">
+            <img src="https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg">
+            <div class="job-card-content">
+                <div class="job-title-text">How AI Is Transforming the Hiring Process</div>
+                <div class="job-meta-row">
+                    <span>JobTalk Team</span>
+                    <span>Nov 14, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="job-card">
+            <img src="https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg">
+            <div class="job-card-content">
+                <div class="job-title-text">Top Skills Companies Want in 2025</div>
+                <div class="job-meta-row">
+                    <span>JobTalk Team</span>
+                    <span>Nov 06, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="job-card">
+            <img src="https://images.pexels.com/photos/3182755/pexels-photo-3182755.jpeg">
+            <div class="job-card-content">
+                <div class="job-title-text">How to Make Your Resume Stand Out</div>
+                <div class="job-meta-row">
+                    <span>JobTalk Team</span>
+                    <span>Oct 29, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="job-card">
+            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg">
+            <div class="job-card-content">
+                <div class="job-title-text">Best Government Jobs to Apply This Month</div>
+                <div class="job-meta-row">
+                    <span>JobTalk Team</span>
+                    <span>Oct 22, 2025</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Right Arrow -->
+    <div class="arrow-btn arrow-right" onclick="document.querySelector('.jobtalk-slider').scrollBy({left:300,behavior:'smooth'})">
+        ❯
+    </div>
+
+</div>
+
+</div>
+<h2 class="faq-title"> </h2>
+
+
+
+
+
+
+
+ 
+
+
+<!--FAQ Section -->
+
+    <section>
+<div class="faq-section">
+
+<style>
+    .faq-section {
+        max-width: 900px;
+        margin: 50px auto;
+        font-family: Arial, sans-serif;
+    }
+     @media(min-width:650px){
+    .faq-section{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .faq-section{grid-template-columns:repeat(1,1fr);}
+}
+    .faq-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .faq-item {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 18px 20px;
+        margin-bottom: 12px;
+        border: 1px solid #e0e0e0;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    @media(min-width:650px){
+    .faq-item{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .faq-item{grid-template-columns:repeat(1,1fr);}
+}
+    .faq-item:hover {
+        background: #f9f9f9;
+    }
+
+    .faq-question {
+        font-size: 18px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        font-size: 15px;
+        color: #555;
+        margin-top: 10px;
+        line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 300px; /* expand height */
+    }
+    @media(min-width:650px){
+    .faq-answer{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .faq-answer{grid-template-columns:repeat(1,1fr);}
+}
+    .faq-icon {
+        font-size: 22px;
+        transition: 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+</style>
+
+<h2 class="faq-title">Frequently Asked Questions</h2>
+
+<div class="faq-item">
+    <div class="faq-question">
+        How can I use this website?
+        <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+        You can browse job listings, internships, admit cards, and results easily using the homepage. 
+        Use filters to find exactly what you need and click on any listing to see full details.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        Is creating an account necessary to apply?
+        <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+        No, creating an account is not required. You can directly visit the official job or exam website
+        through the links provided in each listing.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        Are all job and internship postings verified?
+        <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+        Yes! All listings are cross-verified from official sources before being published on our website
+        to ensure accuracy and authenticity.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        How often is the website updated?
+        <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+        The website is updated daily with the latest job alerts, exams, results, and internships
+        to make sure you never miss any important update.
+    </div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-question">
+        Can I join WhatsApp or Telegram groups for updates?
+        <span class="faq-icon">+</span>
+    </div>
+    <div class="faq-answer">
+        Yes! You can join our WhatsApp and Telegram groups using the buttons provided on the homepage.
+        We send real-time alerts for every job notification and admit card release.
+    </div>
+</div>
+
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+
+</div>
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+
+    <footer class="site-footer">
+
+<style>
+    .site-footer {
+        background: #071a2f; /* dark navy blue */
+        color: #ffffff;
+        padding: 60px 0 25px 0;
+        font-family: Arial, sans-serif;
+        width: 100%;
+    }
+    @media(min-width:650px){
+    .site-footer{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .site-footer{grid-template-columns:repeat(1,1fr);}
+}
+    .footer-wrapper {
+        max-width: 1300px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    @media(min-width:650px){
+    .footer-wrapper{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .footer-wrapper{grid-template-columns:repeat(1,1fr);}
+}
+    .footer-column {
+        width: 280px;
+    }
+
+    .footer-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .footer-text {
+        color: #dbe2ef;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #dbe2ef;
+        font-size: 15px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #59c1ff;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+        background: #ffffff;
+        padding: 6px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    @media(min-width:650px){
+    .social-icons{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+    .social-icons{grid-template-columns:repeat(1,1fr);}
+}
+    .social-icons img:hover {
+        transform: scale(1.1);
+    }
+
+    .download-apps {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 10px;
+    }
+
+    .download-apps img {
+        width: 160px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .download-apps img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Copyright */
+    .footer-bottom {
+        text-align: center;
+        margin-top: 35px;
+        padding-top: 20px;
+        font-size: 14px;
+        color: #b8c6db;
+        border-top: 1px solid #143049;
+    }
+
+    @media(min-width: 650px) {
+        .footer-column {
+            width: 100%;
+        }
+    }
+    @media(min-width: 900px) {
+        .footer-column {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="footer-wrapper">
+
+    <!-- About Column -->
+    <div class="footer-column">
+        <div class="footer-title">About Us</div>
+        <p class="footer-text">
+            We provide latest job notifications, internships, admit cards, exam alerts, 
+            and results to help students and job seekers stay updated.
+        </p>
+
+        <div class="social-icons">
+            <img src="https://img.icons8.com/ios-filled/50/000000/facebook-f.png">
+            <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png">
+            <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png">
+            <img src="https://img.icons8.com/ios-filled/50/000000/youtube-play.png">
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-column">
+        <div class="footer-title">Quick Links</div>
+        <ul class="footer-links">
+            <li><a href="#">Latest Jobs</a></li>
+            <li><a href="#">Internships</a></li>
+            <li><a href="#">Admit Cards</a></li>
+            <li><a href="#">Exam Results</a></li>
+            <li><a href="#">Government Jobs</a></li>
+            <li><a href="#">Private Jobs</a></li>
+        </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-column">
+        <div class="footer-title">Support</div>
+        <ul class="footer-links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Refund Policy</a></li>
+        </ul>
+    </div>
+
+    <!-- Download App -->
+    <div class="footer-column">
+        <div class="footer-title">Download Our App</div>
+
+        <div class="download-apps">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+        </div>
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+    © 2025 JobYaari — All Rights Reserved.
+</div>
+
+
+
+
+</footer></body></html>
